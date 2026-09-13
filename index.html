@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delka Emulator</title>
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -37,7 +36,6 @@
             overflow-x: hidden;
         }
 
-        /* Top Bar Header */
         header {
             width: 100%;
             padding: 16px 32px;
@@ -58,9 +56,6 @@
             font-weight: 800;
             letter-spacing: -0.5px;
             color: var(--text-main);
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
         .brand span {
@@ -84,13 +79,12 @@
             background: #dc2626;
         }
 
-        /* Container Layouts */
         .card-container {
             background-color: var(--card-bg);
             border: 1px solid var(--border);
             padding: 40px;
             border-radius: 16px;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
             width: 100%;
             max-width: 400px;
             text-align: center;
@@ -111,7 +105,6 @@
             margin-bottom: 24px;
         }
 
-        /* Input Styles */
         .input-group {
             margin-bottom: 16px;
             text-align: left;
@@ -158,7 +151,6 @@
             background-color: var(--accent-hover);
         }
 
-        /* Game Grid & Cards */
         .game-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -174,14 +166,13 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+            transition: transform 0.2s, border-color 0.2s;
             cursor: pointer;
         }
 
         .game-card:hover {
             transform: translateY(-4px);
             border-color: var(--accent);
-            box-shadow: 0 10px 15px -3px rgba(56, 189, 248, 0.15);
         }
 
         .game-title {
@@ -209,12 +200,8 @@
             font-size: 0.875rem;
             font-weight: 600;
             color: var(--accent);
-            display: flex;
-            align-items: center;
-            gap: 4px;
         }
 
-        /* Game Screen Container */
         #game-screen {
             display: none;
             width: 100vw;
@@ -241,7 +228,6 @@
 </head>
 <body>
 
-    <!-- Header -->
     <header>
         <div class="brand">
             Delka<span>™</span> Emulator
@@ -269,7 +255,6 @@
         <h2>Select a Game</h2>
         <div class="game-grid">
             
-            <!-- Mario Kart DS -->
             <div class="game-card" onclick="loadGame('nds', 'Mario Kart DS.zip')">
                 <div>
                     <span class="badge badge-nds">Nintendo DS</span>
@@ -278,7 +263,6 @@
                 <div class="play-link">Launch Game →</div>
             </div>
 
-            <!-- Mario Kart Super Circuit -->
             <div class="game-card" onclick="loadGame('gba', 'Mario Kart_ Super Circuit.zip')">
                 <div>
                     <span class="badge badge-gba">GBA</span>
@@ -287,7 +271,6 @@
                 <div class="play-link">Launch Game →</div>
             </div>
 
-            <!-- Pokemon FireRed -->
             <div class="game-card" onclick="loadGame('gba', 'Pokemon_ FireRed Version.zip')">
                 <div>
                     <span class="badge badge-gba">GBA</span>
@@ -296,7 +279,6 @@
                 <div class="play-link">Launch Game →</div>
             </div>
 
-            <!-- Pokemon LeafGreen -->
             <div class="game-card" onclick="loadGame('gba', 'Pokemon - Leaf Green Version (U) (V1.1).zip')">
                 <div>
                     <span class="badge badge-gba">GBA</span>
@@ -305,7 +287,6 @@
                 <div class="play-link">Launch Game →</div>
             </div>
 
-            <!-- Pokemon Crystal -->
             <div class="game-card" onclick="loadGame('gbc', 'Pokemon_ Crystal Version.zip')">
                 <div>
                     <span class="badge badge-gbc">Game Boy Color</span>
@@ -350,99 +331,4 @@
             document.body.appendChild(script);
         }
     </script>
-</body>
-</html>            border-radius: 5px;
-            border: none;
-            background-color: #3a3a3a;
-            color: white;
-        }
-        button {
-            width: 100%;
-            padding: 10px;
-            margin-top: 15px;
-            border-radius: 5px;
-            border: none;
-            background-color: #4CAF50;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        button:hover { background-color: #45a049; }
-        .game-btn {
-            background-color: #008CBA;
-            margin: 5px 0;
-        }
-        .game-btn:hover { background-color: #007bb5; }
-        
-        /* Emulator Container takes up full screen when active */
-        #game-screen {
-            display: none;
-            width: 100vw;
-            height: 100vh;
-        }
-        #game-container {
-            width: 100%;
-            height: 100%;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- LOGIN SCREEN -->
-    <div id="login-screen" class="container">
-        <h1 class="brand-title">Delka&trade; Emulator</h1>
-        <h3>System Login</h3>
-        <input type="text" id="username" placeholder="Username">
-        <input type="password" id="password" placeholder="Password">
-        <button onclick="checkLogin()">Enter</button>
-        <p id="error-msg" style="color: #ff4c4c; display: none;">Invalid credentials</p>
-    </div>
-
-    <!-- MENU SCREEN -->
-    <div id="menu-screen" class="container" style="display: none;">
-        <h1 class="brand-title">Delka&trade; Emulator</h1>
-        <h3>Select Game</h3>
-        <!-- Cores: nds = Nintendo DS, gba = GameBoy Advance, gbc = GameBoy Color -->
-        <button class="game-btn" onclick="loadGame('nds', 'Mario Kart DS.zip')">Mario Kart DS</button>
-        <button class="game-btn" onclick="loadGame('gba', 'Pokemon_ FireRed Version.zip')">Pokémon FireRed</button>
-        <button class="game-btn" onclick="loadGame('gbc', 'Pokemon_ Crystal Version.zip')">Pokémon Crystal</button>
-    </div>
-
-    <!-- GAME SCREEN -->
-    <div id="game-screen">
-        <div id="game-container"></div>
-    </div>
-
-    <script>
-        // Simple Login Logic
-        function checkLogin() {
-            const user = document.getElementById("username").value;
-            const pass = document.getElementById("password").value;
-
-            if (user === "admin" && pass === "abc123") {
-                document.getElementById("login-screen").style.display = "none";
-                document.getElementById("menu-screen").style.display = "block";
-            } else {
-                document.getElementById("error-msg").style.display = "block";
-            }
-        }
-
-        // Load EmulatorJS and the selected ROM
-        function loadGame(core, romFile) {
-            document.getElementById("menu-screen").style.display = "none";
-            document.getElementById("game-screen").style.display = "block";
-
-            // Configure EmulatorJS globals
-            window.EJS_player = '#game-container';
-            window.EJS_core = core;
-            window.EJS_gameUrl = romFile; // Looks for the file in the same folder on GitHub Pages
-            window.EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/'; // Loads the emulator engine remotely
-            
-            // Inject the emulator script into the page
-            const script = document.createElement('script');
-            script.src = 'https://cdn.emulatorjs.org/stable/data/loader.js';
-            document.body.appendChild(script);
-        }
-    </script>
-</body>
-</html>
+</body></html></html>           
